@@ -3,7 +3,10 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import styleinput  from "../styles/inputStyle.module.css";
 
-const ProductsPage = ({ onCloseModal }) => {
+// service
+import { createProduct } from "../services/productServices.jsx";
+
+const ProductsPage = () => {
   const navigate = useNavigate();
 
   const {
@@ -90,24 +93,11 @@ const ProductsPage = ({ onCloseModal }) => {
           {errors.codigoFabrica?.message}
         </p>
 
-        {/* <label>Codigo único</label>
-        <input className={styleinput.estiloinput}
-          type="text"
-          {...register("codigoUnico", {
-            required: "El codigo único es requerido",
-            // minLength: { value: 3, message: "Minimo de caractres es 3" },
-          })}
-        />
-        <p style={{ color: "red", fontSize: "14px", margin: "5px 0" }}>
-          {errors.codigoUnico?.message}
-        </p> */}
-
         <label>Descripción</label>
         <input className={styleinput.estiloinput}
           type="text"
           {...register("description", {
             required: "La descripción es requido",
-            // minLength: { value: 3, message: "Minimo de caractres es 3" },
           })}
         />
         <p style={{ color: "red", fontSize: "14px", margin: "5px 0" }}>
@@ -119,7 +109,6 @@ const ProductsPage = ({ onCloseModal }) => {
           type="text"
           {...register("marca", {
             required: "La Marca es requerido",
-            // minLength: { value: 8, message: "Minimo de caractres es 8" },
           })}
         />
         <p style={{ color: "red", fontSize: "14px", margin: "5px 0" }}>
@@ -138,17 +127,16 @@ const ProductsPage = ({ onCloseModal }) => {
           {errors.categoria?.message}
         </p>
 
-        <label>Número de piezas</label>
+        {/* <label>Número de piezas</label>
         <input className={styleinput.estiloinput}
           type="number"
           {...register("noPiezas", {
-            required: "El número de piezas es requerido",
-            // minLength: { value: 8, message: "Minimo de caractres es 8" },
+            required: "El número de piezas es requerido"
           })}
         />
         <p style={{ color: "red", fontSize: "14px", margin: "5px 0" }}>
           {errors.noPiezas?.message}
-        </p>
+        </p> */}
 
         <button className={styleinput.estiloboton} onClick={createProduct}>Confirmar producto</button>
       </div>
